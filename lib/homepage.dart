@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +14,18 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Login"),
+          title: Text("Homepage"),
         ),
       body: Center(
-        child: Text("Homepage"),
+        child: MaterialButton(
+          onPressed: () async {
+
+            await FirebaseAuth.instance.signOut();
+
+          },
+          child: Text("Sign out"),
+        ),
+
       )
     );
   }
